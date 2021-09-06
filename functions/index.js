@@ -16,10 +16,10 @@ const mailTransport = nodemailer.createTransport({
 
 async function sendWelcomeEmail(email) {
   const mailOptions = {
-    from: 'The Grid Notifier <thegrid.notifier@gmail.com>',
+    from: 'The Twish Notifier <twishapp2021@gmail.com>',
     to: email,
-    subject: 'Welcome to The Grid!',
-    text: `Hey ${email}! Welcome to The Grid, the elite team of secret agents.`,
+    subject: 'Welcome to The Twish!',
+    text: `Hey ${email}! Welcome to The Twish, where you will never miss to wish your love ones.`,
   };
 
   await mailTransport.sendMail(mailOptions);
