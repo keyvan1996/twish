@@ -1,38 +1,90 @@
-.App {
-  text-align: center;
+body {
+  background-color: #f9f9f9 !important;
+  font-size: 15px;
+  font-family: 'Titillium Web', sans-serif !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+  text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.ui.button,
+.ui.input,
+.ui.form input {
+  font-family: 'Titillium Web', sans-serif !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
+  height: 50px;
+  background: #1a2129;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+}
+
+header h2 {
+  color: #fff;
+  margin: 0;
+  padding: 10px;
+  position: absolute;
+  left: 10px;
+}
+
+.app {
+  margin-top: 100px;
+}
+
+.login-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.ui.card.login-card {
+  width: 450px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ui.form input[type='text'],
+.ui.form input[type='password'],
+.ui.form select {
+  margin-top: 10px;
+}
+
+.logout {
+  float: right;
+  position: relative;
+  top: 4px;
+  right: 15px;
+}
+
+.actions {
+  text-align: right;
+}
+
+.actions button {
+  margin-right: 5px;
+}
+
+.actions a {
+  margin-left: 5px;
+}
+
+/* profile image */
+.profile-image {
+  padding: 20px;
+}
+
+.profile-image img {
+  width: 100%;
+  height: auto;
+}
+
+.file-input {
+  display: none;
+}
+
+.upload-button {
+  float: right;
+  margin-top: 20px;
 }
