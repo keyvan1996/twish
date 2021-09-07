@@ -12,6 +12,7 @@ import ProfileRedirect from './router/ProfileRedirect';
 import PrivateRoute from './router/PrivateRoute';
 import AdminRoute from './router/AdminRoute';
 import Users from './pages/Users';
+import AddTwish from './pages/AddTwish';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Switch>
               <ProfileRedirect exact path="/signup" component={Signup} />
               <PrivateRoute exact path="/profile/:id" component={Profile} />
+              <Route exact path="/addtwish" component={AddTwish} />
               <ProfileRedirect exact path="/login" component={Login} />
               <AdminRoute exact path="/users" component={Users} />
               <Route exact path="/">
