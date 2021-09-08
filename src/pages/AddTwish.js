@@ -9,36 +9,9 @@ const AddTwish = () => {
     }
 
     return (
-//         <div className="ui form">
-//   <div class="four fields">
-//     <div className="field">
-//       <label>First name</label>
-//       <input type="text" placeholder="First Name"/>
-//     </div>
-//     <div className="field">
-//       <label>Last name</label>
-//       <input type="text" placeholder="Last Name"/>
-//     </div>
-//     <div className="field">
-//       <label>Email</label>
-//       <input type="text" placeholder="Email"/>
-//     </div>
-//     <div className="field">
-//       <label>Date of Birth</label>
-//       <input type="date"/>
-//     </div>
-//     <br/>
-//     <div className="field">
-//     <label>Message</label>
-//       <input type="text" placeholder="type your message"/>
-//     </div>
-//   </div>
-// </div>
-
-<div
+    <div
   className="add-form-container"
-  style={{ maxWidth: 960, margin: '50px auto' }}
->
+  style={{ maxWidth: 960, margin: '50px auto' }}>
   <form className="ui big form">
     <div className="fields">
       <div className="eight wide field">
@@ -55,6 +28,12 @@ const AddTwish = () => {
       </div>
     </div>
     <div className="fields">
+    <div className="six wide field">
+        <label>
+          Email
+          <input type="email" name="email" />
+        </label>
+      </div>
       <div className="six wide field">
         <label>
           Date
