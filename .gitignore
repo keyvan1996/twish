@@ -25,3 +25,4 @@ yarn-error.log*
 #files
 ./src/firebase/twish-2dd01-firebase-adminsdk-urfse-9e4d605ca2.json
 twish-2dd01-firebase-adminsdk-urfse-9e4d605ca2.json
+.env
