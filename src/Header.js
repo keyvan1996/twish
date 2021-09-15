@@ -15,7 +15,7 @@ function Header() {
   };
 
   const addTwish = async () => {
-    history.push('/addtwish');
+    history.push(`/addtwish/${user.uid}`);
   };
 
   const goProfile = async () => {

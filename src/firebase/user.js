@@ -20,19 +20,11 @@ export const createUserDocument = async (user) => {
 };
  // adding this method to save twishes
 export const createTwishDocument = async (user) => {
-  const docRef = firestore.doc(`/users/${user.uid}/twish`);
-  
-  //create twish object
-  const twishObject = {
-    firsName: '',
-    lastName:'',
-    email:'',
-    date:'',
-    message:'',
-  };
+  // const docRef = firestore.doc(`/users/${user.uid}/twish`);
+  const docRef = firestore.collection('users').doc(`${user.uid}`).collection('twish')
 
     // write to Cloud Firestore
-    return docRef.set(twishObject);
+    return docRef.add(user);
 }
 
 export const updateUserDocument = async (user) => {

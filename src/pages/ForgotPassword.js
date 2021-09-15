@@ -14,6 +14,7 @@ function ForgotPassword() {
     try {
       await passwordReset(data);
       reset();
+      console.log("Please check your email address!");
     } catch (error) {
       console.log(error);
     }
