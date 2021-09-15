@@ -15,6 +15,7 @@ import Users from './pages/Users';
 import AddTwish from './pages/AddTwish';
 import ForgotPassword from './pages/ForgotPassword';
 import About from './pages/About';
+import TwishList from './pages/TwishList';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
               <Route exact path="/about" component={About} />
               <ProfileRedirect exact path="/login" component={Login} />
               <ProfileRedirect exact path="/forgotpassword" component={ForgotPassword} />
+              <Route exact path="/twishlist/:id" component={TwishList} />
               
               <AdminRoute exact path="/users" component={Users} />
               <Route exact path="/">

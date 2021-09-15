@@ -18,6 +18,10 @@ function Header() {
     history.push(`/addtwish/${user.uid}`);
   };
 
+  const twishList = async () => {
+    history.push(`/twishlist/${user.uid}`);
+  };
+
   const goProfile = async () => {
     history.push(`/profile/${user.uid}`);
   };
@@ -54,6 +58,11 @@ function Header() {
       {!!user && (
         <button className="ui secondary button logout" onClick={addTwish}>
           Add Twish
+        </button>
+      )}
+      {!!user && (
+        <button className="ui secondary button logout" onClick={twishList}>
+          Twish List
         </button>
       )}
     </header>

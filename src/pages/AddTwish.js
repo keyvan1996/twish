@@ -8,13 +8,14 @@ import { useForm } from 'react-hook-form';
 const AddTwish = () => {
     const { user } = useSession();
     const params = useParams();
-    const { register, setValue, handleSubmit } = useForm();
+    const { register, setValue, handleSubmit, reset } = useForm();
     const [isLoading, setLoading] = useState(false);
 
     const onSubmit = async (data) => {
       try {
         setLoading(true);
         await createTwishDocument({ uid: params.id, ...data });
+        reset();
       } catch (error) {
         console.log(error);
       } finally {
