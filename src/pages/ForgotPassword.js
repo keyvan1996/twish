@@ -1,37 +1,25 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { login } from '../firebase/auth';
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { passwordReset } from '../firebase/auth';
 
-function Login(props) {
+
+
+function ForgotPassword() {
   const { register, handleSubmit, reset } = useForm();
   const [isLoading, setLoading] = useState(false);
 
-  const routeOnLogin = async (user) => {
-    const token = await user.getIdTokenResult();
-    if (token.claims.admin) {
-      props.history.push('/users');
-    } else {
-      props.history.push(`/profile/${user.uid}`);
-    }
-  };
-
   const onSubmit = async (data) => {
-    let user;
     setLoading(true);
     try {
-      user = await login(data);
+      await passwordReset(data);
       reset();
     } catch (error) {
       console.log(error);
     }
+    setLoading(false);
+  }
 
-    if (user) {
-      routeOnLogin(user);
-    } else {
-      setLoading(false);
-    }
-  };
 
   const formClassName = `ui form ${isLoading ? 'loading' : ''}`;
 
@@ -48,29 +36,16 @@ function Login(props) {
                   name="email"
                   placeholder="Email"
                   ref={register}
-                />
-              </label>
-            </div>
-            <div className="field">
-              <label>
-                Password
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  ref={register}
+                  required
                 />
               </label>
             </div>
             <div className="field actions">
               <button className="ui primary button login" type="submit">
-                Login
+                Reset Password
               </button>
               or
-              <Link to="/signup">Sign Up</Link>
-            </div>
-            <div>
-              <Link to="/forgotpassword">Forgot Password?</Link>
+              <Link to="/login">Login</Link>
             </div>
           </form>
         </div>
@@ -79,4 +54,4 @@ function Login(props) {
   );
 }
 
-export default Login;
+export default ForgotPassword;

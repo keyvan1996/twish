@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "twish-2dd01"
-  }
+    "default": "twish-2dd01",
+    "staging": "twish-2dd01"
+  },
+  "targets": {}
 }

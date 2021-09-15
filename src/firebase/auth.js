@@ -16,6 +16,10 @@ export const logout = () => {
   return firebase.auth().signOut();
 };
 
+export const passwordReset = async ({email}) => {
+  return await firebase.auth().sendPasswordResetEmail(email);
+}
+
 export const login = async ({ email, password }) => {
   const resp = await firebase
     .auth()

@@ -58,6 +58,13 @@ header h2 {
   right: 15px;
 }
 
+.loginb {
+  float: left;
+  position: relative;
+  top: 4px;
+  left: 110px;
+}
+
 .actions {
   text-align: right;
 }

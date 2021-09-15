@@ -1,6 +1,6 @@
 import React from 'react';
 import { logout } from './firebase/auth';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useSession } from './firebase/UserProvider';
 
 
@@ -22,9 +22,25 @@ function Header() {
     history.push(`/profile/${user.uid}`);
   };
 
+  const goAbout = async () => {
+    history.push(`/about`);
+  };
+
+  const goLogin = async () => {
+    history.push(`/login`);
+  };
+
   return (
     <header>
-      <h2>Twish</h2>
+      <h2>
+      <button onClick={goAbout}>Twish</button>
+      </h2>
+      {!user && (
+      <button className="ui secondary button loginb" onClick={goLogin}>
+          Login
+        </button>
+      )}
+
       {!!user && (
         <button className="ui secondary button logout" onClick={logoutUser}>
           LOGOUT
