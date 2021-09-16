@@ -8,6 +8,7 @@ import { useSession } from './firebase/UserProvider';
 function Header() {
   const history = useHistory();
   const { user } = useSession();
+  const { isAdmin } = useSession();
 
   const logoutUser = async () => {
     await logout();
@@ -50,17 +51,17 @@ function Header() {
           LOGOUT
         </button>
       )}
-      {!!user && (
+      {!!user && !isAdmin && (
         <button className="ui secondary button logout" onClick={goProfile}>
           Profile
         </button>
       )}
-      {!!user && (
+      {!!user && !isAdmin && (
         <button className="ui secondary button logout" onClick={addTwish}>
           Add Twish
         </button>
       )}
-      {!!user && (
+      {!!user && !isAdmin && (
         <button className="ui secondary button logout" onClick={twishList}>
           Twish List
         </button>

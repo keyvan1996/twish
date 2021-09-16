@@ -26,14 +26,13 @@ function App() {
         <div className="app">
           <div className="ui grid container">
             <Switch>
-              <ProfileRedirect exact path="/signup" component={Signup} />
               <PrivateRoute exact path="/profile/:id" component={Profile} />
-              <Route exact path="/addtwish/:id" component={AddTwish} />
+              <PrivateRoute exact path="/addtwish/:id" component={AddTwish} />
+              <PrivateRoute exact path="/twishlist/:id" component={TwishList} />
               <Route exact path="/about" component={About} />
+              <ProfileRedirect exact path="/signup" component={Signup} />
               <ProfileRedirect exact path="/login" component={Login} />
               <ProfileRedirect exact path="/forgotpassword" component={ForgotPassword} />
-              <Route exact path="/twishlist/:id" component={TwishList} />
-              
               <AdminRoute exact path="/users" component={Users} />
               <Route exact path="/">
                 <Redirect to="/login" />
