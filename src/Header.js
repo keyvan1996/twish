@@ -56,14 +56,14 @@ function Header() {
           Profile
         </button>
       )}
+          {!!user && !isAdmin && (
+            <button className="ui secondary button logout" onClick={twishList}>
+              Twish List
+            </button>
+          )}
       {!!user && !isAdmin && (
         <button className="ui secondary button logout" onClick={addTwish}>
           Add Twish
-        </button>
-      )}
-      {!!user && !isAdmin && (
-        <button className="ui secondary button logout" onClick={twishList}>
-          Twish List
         </button>
       )}
     </header>
