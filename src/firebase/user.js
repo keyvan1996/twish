@@ -27,6 +27,14 @@ export const createTwishDocument = async (user) => {
     return docRef.add(user);
 }
 
+ // adding this method to update twishes
+ // I can not grab the user uid and instead I have hard coded it so far.
+ export const updateTwishDocument = async (twish) => {
+  const docRef = firestore.doc(`users/${twish.uid}/twish/${twish.id}`)
+    // write to Cloud Firestore
+    return docRef.update(twish);
+}
+
 export const updateUserDocument = async (user) => {
   const docRef = firestore.doc(`/users/${user.uid}`);
   return docRef.update(user);

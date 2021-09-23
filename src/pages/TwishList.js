@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { firestore } from '../firebase/config';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-// import { differenceInYears, getMonth, getDate, getYear, isPast, addYears, differenceInCalendarDays, format, isToday } from 'date-fns';
 
 const TwishList = ({twish}) => {
-  // const birthDate = new Date(twish.date);
   const [twishes, setTwishes] = useState([]);
   const params = useParams();
 
@@ -37,22 +35,6 @@ const TwishList = ({twish}) => {
     }
     return age;
 }
-
-//   const getNextBirthday = (date) => {
-//     let nextBirthday;
-//     const birthdayThisYear = new Date(getYear(new Date()), getMonth(date), getDate(date));
-//     if (isPast(birthdayThisYear) && !isToday(birthdayThisYear)) {
-//         nextBirthday = addYears(birthdayThisYear, 1)
-//     } else {
-//         nextBirthday = birthdayThisYear
-//     }
-//     return nextBirthday
-// }
-
-// const getBirthdayDaysAway = (date) => {
-//   const daysAway = differenceInCalendarDays(getNextBirthday(date), new Date());
-//   return daysAway
-// }
     return(
         <div>
         <table className="ui selectable celled table">
@@ -89,7 +71,10 @@ const TwishList = ({twish}) => {
                     {twish.data.message}
                 </td>
                 <td>
-                <button className="negative ui button" onClick={() => {onDelete(twish.id); console.log(twish);}}>Delete</button>
+                <button className="negative ui button" onClick={() => {onDelete(twish.id)}}>Delete</button>
+                <Link to={`/updatetwish/${twish.id}`}>
+                <button className="positive ui button">Update</button>
+                </Link>
               </td>
               </tr>
             ))}

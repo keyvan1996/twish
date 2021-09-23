@@ -106,7 +106,7 @@ const Profile = () => {
             type="submit"
             className="ui submit large grey button right floated"
           >
-            Submit
+            Save Changes
           </button>
         </form>
       </div>

@@ -1,20 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { createTwishDocument } from "../firebase/user";
+import { updateTwishDocument } from "../firebase/user";
+import { firestore } from '../firebase/config';
+import { updateUserDocument } from '../firebase/user';
 import { useSession } from "../firebase/UserProvider";
 import { useForm } from 'react-hook-form';
 
 
-const AddTwish = () => {
+const UpdateTwish = () => {
     const { user } = useSession();
     const params = useParams();
     const { register, setValue, handleSubmit, reset } = useForm();
     const [isLoading, setLoading] = useState(false);
+    const [userDocument, setUserDocument] = useState(null);
+
+    useEffect(() => {
+        const docRef = firestore.collection('users').doc(user.uid).collection('twish').doc(params.id);
+        const unsubscribe = docRef.onSnapshot((doc) => {
+          if (doc.exists) {
+            const documentData = doc.data();
+            setUserDocument(documentData);
+            const formData = Object.entries(documentData).map((entry) => ({
+              [entry[0]]: entry[1],
+            }));
+    
+            setValue(formData);
+          }
+        });
+        return unsubscribe;
+      }, [user.uid, setValue, params.id]);
 
     const onSubmit = async (data) => {
       try {
         setLoading(true);
-        await createTwishDocument({ uid: params.id, ...data });
+        await updateTwishDocument({ uid: `${user.uid}`, id: params.id, ...data });
         reset();
       } catch (error) {
         console.log(error);
@@ -41,7 +60,6 @@ const AddTwish = () => {
           <input type="text" name="firstName"
           required 
           ref={register}
-          // value={firstName} onChange={(e) => setFirstName(e.target.value)} 
           />
         </label>
       </div>
@@ -88,7 +106,7 @@ const AddTwish = () => {
     </div>
     <button type="submit" className="ui submit large grey button right floated"
     >
-      Submit
+      Save Changes
     </button>
   </form>
 </div>
@@ -96,5 +114,5 @@ const AddTwish = () => {
     )
 }
 
-export default AddTwish;
+export default UpdateTwish;
 

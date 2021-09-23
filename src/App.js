@@ -16,6 +16,7 @@ import AddTwish from './pages/AddTwish';
 import ForgotPassword from './pages/ForgotPassword';
 import About from './pages/About';
 import TwishList from './pages/TwishList';
+import UpdateTwish from './pages/UpdateTwish';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Switch>
               <PrivateRoute exact path="/profile/:id" component={Profile} />
               <PrivateRoute exact path="/addtwish/:id" component={AddTwish} />
+              <Route exact path="/updatetwish/:id" component={UpdateTwish} />
               <PrivateRoute exact path="/twishlist/:id" component={TwishList} />
               <Route exact path="/about" component={About} />
               <ProfileRedirect exact path="/signup" component={Signup} />

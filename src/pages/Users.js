@@ -19,21 +19,19 @@ const Users = () => {
       <table className="ui selectable celled table">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Secret Address</th>
-            <th>Phone</th>
+            <th>Profile</th>
+            <th>Twish List</th>
           </tr>
         </thead>
         <tbody>
           {users.map((user) => (
             <tr key={user.uid}>
               <td>
-                <Link to={`/profile/${user.uid}`}>{user.name}</Link>
+                <Link to={`/profile/${user.uid}`}>{user.name}'s profile</Link>
               </td>
               <td>
-                {user.address} {user.city}, {user.state} {user.zip}
+                <Link to={`/twishlist/${user.uid}`}>{user.name}'s Twish List</Link>
               </td>
-              <td>{user.phone}</td>
             </tr>
           ))}
         </tbody>
