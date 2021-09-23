@@ -1,9 +1,11 @@
-import React, { useState } from "react"
+//import React, { useState } from "react"
+require('dotenv').config();
 //import { firestore, storage } from './firebase/config'; //adding these lines to import tools  I may need
-import * as sgMail from "@sendgrid/mail"; //this line shouldn't work when deployed
+//import * as sgMail from "@sendgrid/mail"; //this line shouldn't work when deployed
 //sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 //sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-const apiKey = process.env.SENDGRID_API_KEY;
+const apiKey = process.env.REACT_APP_SENDGRID_API_KEY; //API KEY reads Properly
+
 
 function testEmail(){
   console.log(process.env.SENDGRID_API_KEY);
@@ -57,6 +59,6 @@ setTwishData();
 console.log("Script ran");
 
 
-export default { testEmail };
+//export default { testEmail };
 
 //export default testEmail;
