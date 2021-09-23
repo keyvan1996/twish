@@ -1,9 +1,9 @@
 import React, { useState } from "react"
-import { firestore, storage } from './firebase/config'; //adding these lines to import tools  I may need
+//import { firestore, storage } from './firebase/config'; //adding these lines to import tools  I may need
 import * as sgMail from "@sendgrid/mail"; //this line shouldn't work when deployed
 //sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
+//sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const apiKey = process.env.SENDGRID_API_KEY;
 
 function testEmail(){
   console.log(process.env.SENDGRID_API_KEY);
@@ -24,6 +24,7 @@ function testEmail(){
     })
 
 }
+/*
 function setTwishData(){
   //just a note But I have no idea what I'm doing :(
   const whatami = firestone.collection('Users').doc(params.id).collection('twish')
@@ -52,7 +53,10 @@ function sendTwish(msgData) {
 }
 
 setTwishData();
-
+*/
 console.log("Script ran");
+
+
+export default { testEmail };
 
 //export default testEmail;

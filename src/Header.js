@@ -35,6 +35,10 @@ function Header() {
     history.push(`/login`);
   };
 
+  const testPage = async () => {
+    history.push('/testpage');
+  }
+
   return (
     <header>
       <h2>
@@ -49,6 +53,11 @@ function Header() {
       {!!user && (
         <button className="ui secondary button logout" onClick={logoutUser}>
           LOGOUT
+        </button>
+      )}
+      {!!user && (
+        <button className="ui secondary button logout" onClick={testPage}>
+          Go to Test page
         </button>
       )}
       {!!user && !isAdmin && (

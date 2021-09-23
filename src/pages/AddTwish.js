@@ -38,16 +38,16 @@ const AddTwish = () => {
       <div className="eight wide field">
         <label>
           First Name
-          <input type="text" name="firstName" 
+          <input type="text" name="firstName"
           ref={register}
-          // value={firstName} onChange={(e) => setFirstName(e.target.value)} 
+          // value={firstName} onChange={(e) => setFirstName(e.target.value)}
           />
         </label>
       </div>
       <div className="eight wide field">
         <label>
           Last Name
-          <input type="text" name="lastName" 
+          <input type="text" name="lastName"
           ref={register}
           />
         </label>
@@ -57,15 +57,15 @@ const AddTwish = () => {
     <div className="six wide field">
         <label>
           Email
-          <input type="email" name="email" 
-          ref={register} 
+          <input type="email" name="email"
+          ref={register}
           />
         </label>
       </div>
       <div className="six wide field">
         <label>
           Date
-          <input type="date" name="date" 
+          <input type="date" name="date"
           ref={register}
           />
         </label>
@@ -75,7 +75,7 @@ const AddTwish = () => {
       <div className="field">
         <label>
           Message
-          <input type="text" name="message" 
+          <input type="text" name="message"
           ref={register}
           />
         </label>
@@ -92,4 +92,3 @@ const AddTwish = () => {
 }
 
 export default AddTwish;
-
