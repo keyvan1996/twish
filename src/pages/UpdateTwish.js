@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { updateTwishDocument } from "../firebase/user";
 import { firestore } from '../firebase/config';
-import { updateUserDocument } from '../firebase/user';
 import { useSession } from "../firebase/UserProvider";
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
+
 
 
 const UpdateTwish = () => {
+    const history = useHistory();
     const { user } = useSession();
     const params = useParams();
     const { register, setValue, handleSubmit, reset } = useForm();
@@ -34,7 +36,7 @@ const UpdateTwish = () => {
       try {
         setLoading(true);
         await updateTwishDocument({ uid: `${user.uid}`, id: params.id, ...data });
-        reset();
+        history.push(`/twishlist/${user.uid}`);
       } catch (error) {
         console.log(error);
       } finally {
