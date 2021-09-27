@@ -3,9 +3,13 @@ import { useParams } from "react-router";
 import { createTwishDocument } from "../firebase/user";
 import { useSession } from "../firebase/UserProvider";
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 
 const AddTwish = () => {
+    const history = useHistory();
     const { user } = useSession();
     const params = useParams();
     const { register, setValue, handleSubmit, reset } = useForm();
@@ -15,9 +19,27 @@ const AddTwish = () => {
       try {
         setLoading(true);
         await createTwishDocument({ uid: params.id, ...data });
+        toast.success('Twish has been added successfully!', {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
         reset();
+        // history.push(`/twishlist/${user.uid}`);
       } catch (error) {
-        console.log(error);
+        toast.error(error, {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
       } finally {
         setLoading(false);
       }
@@ -33,6 +55,17 @@ const AddTwish = () => {
     <div
   className="add-form-container"
   style={{ maxWidth: 960, margin: '50px auto' }}>
+    <ToastContainer
+          position="top-center"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+      />
   <form className={formClassname} onSubmit={handleSubmit(onSubmit)}>
     <div className="fields">
       <div className="eight wide field">

@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { login } from '../firebase/auth';
 import { Link } from 'react-router-dom';
 
+
 function Login(props) {
   const { register, handleSubmit, reset } = useForm();
   const [isLoading, setLoading] = useState(false);
@@ -23,7 +24,7 @@ function Login(props) {
       user = await login(data);
       reset();
     } catch (error) {
-      console.log(error);
+      alert(error);
     }
 
     if (user) {

@@ -14,7 +14,7 @@ function Signup(props) {
       newUser = await signup(data);
       reset();
     } catch (error) {
-      console.log(error);
+      alert(error);
     }
 
     if (newUser) {

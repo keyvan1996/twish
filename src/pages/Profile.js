@@ -5,6 +5,8 @@ import { useSession } from '../firebase/UserProvider';
 import { firestore } from '../firebase/config';
 import { updateUserDocument } from '../firebase/user';
 import { ProfileImage } from '../ProfileImage';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const Profile = () => {
   const { user } = useSession();
@@ -33,8 +35,25 @@ const Profile = () => {
     try {
       setLoading(true);
       await updateUserDocument({ uid: params.id, ...data });
+      toast.success('Profile has been added successfully!', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
     } catch (error) {
-      console.log(error);
+      toast.error(error, {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
     } finally {
       setLoading(false);
     }
@@ -51,6 +70,17 @@ const Profile = () => {
       className="add-form-container"
       style={{ maxWidth: 960, margin: '50px auto' }}
     >
+      <ToastContainer
+          position="top-center"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+      />
       <div className="ui grid stackable">
         <ProfileImage id={params.id} />
         <form className={formClassname} onSubmit={handleSubmit(onSubmit)}>

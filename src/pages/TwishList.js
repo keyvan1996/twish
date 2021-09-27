@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { firestore } from '../firebase/config';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const TwishList = ({twish}) => {
   const [twishes, setTwishes] = useState([]);
@@ -19,9 +21,25 @@ const TwishList = ({twish}) => {
   const onDelete = async (twish_id) => {
     try {
       await firestore.collection('users').doc(params.id).collection('twish').doc(twish_id).delete();
-      console.log("deleted successfully!");
+      toast.success('deleted successfully!', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
     } catch (error) {
-      console.error(error);
+      toast.error(error, {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
     }
   }
 
@@ -37,6 +55,17 @@ const TwishList = ({twish}) => {
 }
     return(
         <div>
+          <ToastContainer
+            position="top-center"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
         <table className="ui selectable celled table">
           <thead>
             <tr>
