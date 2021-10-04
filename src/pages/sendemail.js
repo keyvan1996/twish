@@ -5,6 +5,7 @@ const sgMail = require("@sendgrid/mail"); //this line shouldn't work when deploy
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 
+
 function testEmail(){
   console.log(process.env.SENDGRID_API_KEY);
   const msg = {
@@ -25,15 +26,16 @@ function testEmail(){
 
 }
 function setTwishData(){
-  //just a note But I have no idea what I'm doing :(
-  const whatami = firestone.collection('Users').doc(params.id).collection('twish')
-  .get().then => {
-    if(!doc.exists){
-      console.log('error');
-    }
-    console.log("maybe I am a real boi");
+  //trying to identify firestone data...
+
+  //const whatami = firestone.collection('Users').doc(params.id).collection('twish')
+  //.get().then => {
+  //  if(!doc.exists){
+  //    console.log('error');
+  //  }
+    console.log("Called setTwishData");
     //do stuff
-  }
+  //}
   //first some dbug code print twish
   // until this is edited this is all dbug code
 }
@@ -53,6 +55,13 @@ function sendTwish(msgData) {
 
 setTwishData();
 
+function testfunction() {
+  console.log("calling Default function from a different class");
+  console.log(process.env.SENDGRID_API_KEY); //I can't get this api key to work.
+
+}
+
 console.log("Script ran");
 
-export default sendTwish;
+//export default sendTwish; only one default export allowed per fuction
+export default testfunction;

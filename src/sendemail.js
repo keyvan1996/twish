@@ -10,7 +10,7 @@ const apiKey = process.env.REACT_APP_SENDGRID_API_KEY; //API KEY reads Properly
 function testEmail(){
   console.log(process.env.SENDGRID_API_KEY);
   const msg = {
-    to: "millerjosh28@ymail.com",
+    to: "joshntram@gmail.com",
     from: "Twish2021@outlook.com",
     subject: "Fourth Sandgrid Test",
     text: "I am looking for this text in the sent sendgrid email",
