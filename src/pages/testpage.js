@@ -49,56 +49,13 @@ function Testpage(){
 }
 
 function GrabData(user, setUser){
-  //this code in the test page is for building the firebase data for Backend
-  //const [user, setUser] = React.useState([]);
-
-/* old method from tutorial could not get working
-  useEffect(() => {
-    console.log('react use effects is running.');
-    const fetchUsers = async () => {
-      try {
-        console.log('trying');
-        //if (!firestore) return;
-        const db = firestore();
-        const ref = db.collection("users");
-
-        const docs = await ref.get();
-        console.log('Grabbing Data');
-        let allUsers = [];
-        docs.forEach((doc) => {
-          console.log('fetching...');
-          const usersData = doc.data();
-          console.log(usersData.name);
-          allUsers.push(usersData.name);
-        });
-        setUser(allUsers);
-      }catch (error) {
-        console.log("error", error);
-      }
-    }
-    //fetchUsers();
-  });
-*/
-  //first test going to try to print the list of users . printing list of users doesn't work because of permission issue.
-/*
-  console.log('t2 running');
-  const [users, setUsers] = useState([]);
-  useEffect( () => {
-    const usercollect = firestore.collection('users');
-    const uData = usercollect.onSnapshot((querySnapshot) => {
-      const users = querySnapshot.docs.map((doc) => doc.data());
-      setUsers(users);
-      console.log('set Users ran');
-    });
-  return uData;
-}, []);
-  console.log('Trying to print users: ' + users)
-*/
+  //const [user, setUser] = useState([]);
+  //const [data, setData] = useState(null);
 console.log('t3 running');
 const params = useParams();
 const [users, setUsers] = useState([]);
 useEffect( () => {
-  const usercollect = firestore.collection('users').doc('uKgOvGV9h6UcjR3fy43zQAYa9uI3').collection('twish');
+  const usercollect = firestore.collection('users').doc(params.id).collection('twish');
   const uData = usercollect.onSnapshot((querySnapshot) => {
     const users = querySnapshot.docs.map((doc) => doc.data());
     setUsers(users);
@@ -119,19 +76,5 @@ console.log('Trying to print myData: ' + JSON.stringify(users));
   .then(response => response.text())
   .then(res => console.log(res));
 }
-
-/*wip wait
-const body = await response.text();
-console.log(body);
-console.log('attempting POST');
-const postData = users;
-console.log(JSON.stringify(users));
-const options = {
-  hostname: http://localhost:3001
-  port: 3001,
-  path: '/ha'
-}
-*/
-
 
 export default Testpage;
