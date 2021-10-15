@@ -54,62 +54,45 @@ const TwishList = ({twish}) => {
     return age;
 }
     return(
-        <div>
+      <div class="ui cards">
           <ToastContainer
-            position="top-center"
-            autoClose={2000}
-            hideProgressBar={false}
-            newestOnTop
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
+          position="top-center"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
           />
-        <table className="ui selectable celled table">
-          <thead>
-            <tr>
-              <th>Age</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Email</th>
-              <th>Date of Birth</th>
-              <th>Message</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {twishes.map((twish) => (
-              <tr key={twish.data.uid}>
-                <td>
-                  {getAge(twish.data.date)}
-                </td>
-                <td>
-                    {twish.data.firstName}
-                </td>
-                <td>
-                    {twish.data.lastName}
-                </td>
-                <td>
-                    {twish.data.email}
-                </td>
-                <td>
-                    {twish.data.date}
-                </td>
-                <td>
-                    {twish.data.message}
-                </td>
-                <td>
-                <button className="negative ui button" onClick={() => {onDelete(twish.id)}}>Delete</button>
-                <Link to={`/updatetwish/${twish.id}`}>
-                <button className="positive ui button">Update</button>
-                </Link>
-              </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                    {twishes.map((twish) => (
+  <div class="card" key={twish.data.uid}>
+    <div class="content">
+      <div class="right floated mini ui image" >
+        Age: {getAge(twish.data.date)}
       </div>
+      <div class="header">
+        {twish.data.firstName} {twish.data.lastName}
+      </div>
+      <div class="meta">
+        {twish.data.email}
+      </div>
+      <div class="description">
+        {twish.data.message}
+      </div>
+    </div>
+    <div class="extra content">
+      <div class="ui two buttons">
+      <Link to={`/updatetwish/${twish.id}`}>
+        <div class="ui basic green button">Update</div>
+        </Link>
+        <div class="ui basic red button" onClick={() => {onDelete(twish.id)}}>Delete</div>
+      </div>
+    </div>
+  </div>
+                    ))}
+</div>
     );
 }
 

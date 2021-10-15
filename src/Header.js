@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from "react";
 import { logout } from './firebase/auth';
 import { Link, useHistory } from 'react-router-dom';
 import { useSession } from './firebase/UserProvider';
+
 
 
 
@@ -58,12 +59,12 @@ function Header() {
       )}
           {!!user && !isAdmin && (
             <button className="ui secondary button logout" onClick={twishList}>
-              Twish List
+              List
             </button>
           )}
       {!!user && !isAdmin && (
         <button className="ui secondary button logout" onClick={addTwish}>
-          Add Twish
+          Add
         </button>
       )}
     </header>
