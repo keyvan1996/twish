@@ -55,7 +55,7 @@ console.log('t3 running');
 const params = useParams();
 const [users, setUsers] = useState([]);
 useEffect( () => {
-  const usercollect = firestore.collection('users').doc(params.id).collection('twish');
+  const usercollect = firestore.collection('users').doc('uKgOvGV9h6UcjR3fy43zQAYa9uI3').collection('twish');
   const uData = usercollect.onSnapshot((querySnapshot) => {
     const users = querySnapshot.docs.map((doc) => doc.data());
     setUsers(users);
