@@ -17,6 +17,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import About from './pages/About';
 import TwishList from './pages/TwishList';
 import UpdateTwish from './pages/UpdateTwish';
+//import testpage from './pages/testpage'
 
 
 function App() {

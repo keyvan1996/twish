@@ -36,6 +36,10 @@ function Header() {
     history.push(`/login`);
   };
 
+//  const testPage = async () => {
+//    history.push('/testpage');
+//  }
+
   return (
     <header>
       <h2>
@@ -52,6 +56,7 @@ function Header() {
           LOGOUT
         </button>
       )}
+      
       {!!user && !isAdmin && (
         <button className="ui secondary button logout" onClick={goProfile}>
           Profile

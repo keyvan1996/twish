@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { firestore } from '../firebase/config';
 import { useParams } from "react-router";
 import { createTwishDocument } from "../firebase/user";
 import { useSession } from "../firebase/UserProvider";
@@ -46,10 +47,39 @@ const AddTwish = () => {
     };
 
 
-    if (!user) {
-        return null;
-    }
+
     const formClassname = `ui big form twelve wide column ${isLoading ? 'loading' : ''}`;
+//adding sendTwish functionality here
+//const [user, setUser] = useState([]);
+const [data, setData] = useState(null);
+console.log('t3 running');
+//const params = useParams();
+const [users, setUsers] = useState([]);
+useEffect( () => {
+const usercollect = firestore.collection('users').doc(params.id).collection('twish');
+const uData = usercollect.onSnapshot((querySnapshot) => {
+  const users = querySnapshot.docs.map((doc) => doc.data());
+  setUsers(users);
+  console.log('set Users ran');
+});
+return uData;
+}, []);
+console.log('Trying to print myData: ' + JSON.stringify(users));
+
+//attempting POST req method not working following verbos docs before switching to documentation
+//const data = { title, body };datadata
+  const requestPost = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(users)
+  };
+  fetch("https://quiet-anchorage-64117.herokuapp.com", requestPost)
+.then(response => response.text())
+.then(res => console.log(res));
+//end of sendtwish
+if (!user) {
+    return null;
+}
 
     return (
     <div
@@ -72,9 +102,9 @@ const AddTwish = () => {
         <label>
           First Name
           <input type="text" name="firstName"
-          required 
+          required
           ref={register}
-          // value={firstName} onChange={(e) => setFirstName(e.target.value)} 
+          // value={firstName} onChange={(e) => setFirstName(e.target.value)}
           />
         </label>
       </div>
@@ -82,7 +112,7 @@ const AddTwish = () => {
         <label>
           Last Name
           <input type="text" name="lastName"
-          required 
+          required
           ref={register}
           />
         </label>
@@ -93,8 +123,8 @@ const AddTwish = () => {
         <label>
           Email
           <input type="email" name="email"
-          required 
-          ref={register} 
+          required
+          ref={register}
           />
         </label>
       </div>
@@ -102,7 +132,7 @@ const AddTwish = () => {
         <label>
           Date
           <input type="date" name="date"
-          required 
+          required
           ref={register}
           />
         </label>
@@ -113,7 +143,7 @@ const AddTwish = () => {
         <label>
           Message
           <input type="text" name="message"
-          required 
+          required
           ref={register}
           />
         </label>
@@ -130,4 +160,3 @@ const AddTwish = () => {
 }
 
 export default AddTwish;
-

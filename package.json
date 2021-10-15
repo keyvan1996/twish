@@ -2,7 +2,9 @@
   "name": "react-firebase-dashboard",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
+    "@sendgrid/mail": "^7.4.6",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -42,4 +44,5 @@
       "last 1 safari version"
     ]
   }
+
 }
