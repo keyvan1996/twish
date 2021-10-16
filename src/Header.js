@@ -36,35 +36,54 @@ function Header() {
     history.push(`/login`);
   };
 
+  const goUsers = async () => {
+    history.push('/users');
+  }
+
+  const goSuggestions = async () => {
+    history.push('/suggestions');
+  }
+
   return (
     <header>
       <h2>
       <button onClick={goAbout}>Twish</button>
       </h2>
       {!user && (
-      <button className="ui secondary button loginb" onClick={goLogin}>
+      <button className="ui inverted primary button loginb" onClick={goLogin}>
           Login
         </button>
       )}
 
       {!!user && (
-        <button className="ui secondary button logout" onClick={logoutUser}>
+        <button className="ui inverted red button logout" onClick={logoutUser}>
           LOGOUT
         </button>
       )}
       {!!user && !isAdmin && (
-        <button className="ui secondary button logout" onClick={goProfile}>
+        <button className="ui inverted primary button logout" onClick={goProfile}>
           Profile
         </button>
       )}
           {!!user && !isAdmin && (
-            <button className="ui secondary button logout" onClick={twishList}>
-              List
+            <button className="ui inverted primary button logout" onClick={twishList}>
+              Twish List
             </button>
           )}
       {!!user && !isAdmin && (
-        <button className="ui secondary button logout" onClick={addTwish}>
-          Add
+        <button className="ui inverted primary button logout" onClick={addTwish}>
+          Add Twish
+        </button>
+      )}
+
+      {isAdmin && (
+        <button className="ui inverted primary button logout" onClick={goUsers}>
+          Users
+        </button>
+      )}
+      {isAdmin && (
+        <button className="ui inverted primary button logout" onClick={goSuggestions}>
+          Suggestions
         </button>
       )}
     </header>
