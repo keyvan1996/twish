@@ -32,7 +32,7 @@ function App() {
               <PrivateRoute exact path="/addtwish/:id" component={AddTwish} />
               <Route exact path="/updatetwish/:id" component={UpdateTwish} />
               <PrivateRoute exact path="/twishlist/:id" component={TwishList} />
-              <Route exact path="/about" component={About} />
+              <Route exact path="/about/:id" component={About} />
               <ProfileRedirect exact path="/signup" component={Signup} />
               <ProfileRedirect exact path="/login" component={Login} />
               <ProfileRedirect exact path="/forgotpassword" component={ForgotPassword} />

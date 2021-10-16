@@ -29,7 +29,7 @@ function Header() {
   };
 
   const goAbout = async () => {
-    history.push(`/about`);
+    history.push(`/about/${user.uid}`);
   };
 
   const goLogin = async () => {

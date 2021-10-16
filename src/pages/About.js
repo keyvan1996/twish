@@ -15,7 +15,7 @@ function About(){
     const onSubmit = async (data) => {
         try {
           setLoading(true);
-          await createSuggestionDocument({ uid: 'MeqXVGfIq8XOBeQqFNnXtT3WNlw1', ...data });
+          await createSuggestionDocument({ uid: params.id, ...data });
           toast.success('We appreciate your suggestion!', {
             position: "top-center",
             autoClose: 2000,
