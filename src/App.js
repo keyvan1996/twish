@@ -17,7 +17,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import About from './pages/About';
 import TwishList from './pages/TwishList';
 import UpdateTwish from './pages/UpdateTwish';
-//import testpage from './pages/testpage'
+import Suggestions from './pages/Suggestions';
 
 
 function App() {
@@ -32,11 +32,12 @@ function App() {
               <PrivateRoute exact path="/addtwish/:id" component={AddTwish} />
               <Route exact path="/updatetwish/:id" component={UpdateTwish} />
               <PrivateRoute exact path="/twishlist/:id" component={TwishList} />
-              <Route exact path="/about" component={About} />
+              <Route exact path="/about/:id" component={About} />
               <ProfileRedirect exact path="/signup" component={Signup} />
               <ProfileRedirect exact path="/login" component={Login} />
               <ProfileRedirect exact path="/forgotpassword" component={ForgotPassword} />
               <AdminRoute exact path="/users" component={Users} />
+              <AdminRoute exact path="/suggestions" component={Suggestions} />
               <Route exact path="/">
                 <Redirect to="/login" />
               </Route>

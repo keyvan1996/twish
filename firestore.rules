@@ -7,5 +7,8 @@ service cloud.firestore {
         match /users/{userId}/twish/{twishId} {
       	allow read, write,update: if request.auth.uid == userId || request.auth.token.admin == true
     }
+        match /users/{userId}/suggestion/{suggestionId} {
+      	allow read, write,update: if request.auth.uid == userId || request.auth.token.admin == true
+    }
   }
 }
