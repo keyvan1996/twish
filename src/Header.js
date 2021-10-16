@@ -60,6 +60,7 @@ function Header() {
           LOGOUT
         </button>
       )}
+      
       {!!user && !isAdmin && (
         <button className="ui inverted primary button logout" onClick={goProfile}>
           Profile
