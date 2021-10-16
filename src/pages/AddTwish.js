@@ -73,7 +73,7 @@ console.log('Trying to print myData: ' + JSON.stringify(users));
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(users)
   };
-  fetch("https://quiet-anchorage-64117.herokuapp.com", requestPost)
+  fetch("https://quiet-anchorage-64117.herokuapp.com/", requestPost)
 .then(response => response.text())
 .then(res => console.log(res));
 //end of sendtwish
