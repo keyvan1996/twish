@@ -96,6 +96,7 @@ if (!user) {
           draggable
           pauseOnHover
       />
+      <h3>Add your celebratory message on this page, Twish will automaticly send it to the person you are adding on here.</h3>
   <form className={formClassname} onSubmit={handleSubmit(onSubmit)}>
     <div className="fields">
       <div className="eight wide field">
