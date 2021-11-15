@@ -6,14 +6,6 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -41,8 +33,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 A study conducted by OnePoll, in conjunction with Evite, looked into the birthday celebration habits of 2,000 Americans and found that as many as 35 percent of people have had their significant other forget their birthday.
 This is where Twish comes into play, a user-friendly website that allows users to send automated celebratory wishes to their friends and family. It allows the users to add their custom message, the date that the message must be sent, and more information. Users are able to add as many celebratory messages as they want. After creating the celebratory messages, users are able to update and delete all the information they provided.
@@ -111,7 +101,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
