@@ -54,6 +54,7 @@ This is where Twish comes into play, a user-friendly website that allows users t
 ### Built With
 
 * [React.js](https://reactjs.org/)
+* [Node.js](https://nodejs.org/)
 * [Firebase](https://firebase.google.com/)
 * [Semantic UI](https://semantic-ui.com/)
 
