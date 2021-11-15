@@ -1,3 +1,5 @@
+// this file creates a route only for the admin user where the admin is able to see every information
+// that is inside the databse.
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { useSession } from '../firebase/UserProvider';

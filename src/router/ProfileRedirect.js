@@ -2,6 +2,8 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { useSession } from '../firebase/UserProvider';
 
+// the files restricts access to other users profile page
+// only a user who own a profile and see their page
 const ProfileRedirect = ({ component: Component, ...rest }) => {
   const { user, isAdmin } = useSession();
 

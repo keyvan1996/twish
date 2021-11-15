@@ -43,6 +43,7 @@ const TwishList = ({twish}) => {
     }
   }
 
+  // this function calculates the age using the birthday given from filling the form.
   function getAge(dateString) {
     var today = new Date();
     var birthDate = new Date(dateString);

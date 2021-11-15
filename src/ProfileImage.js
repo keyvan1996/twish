@@ -16,6 +16,7 @@ export const ProfileImage = ({ id }) => {
     setImageUrl(downloadUrl);
   };
 
+  // calculate the estimated time for the image to be uploaded to databse and shows the progress in frontend
   const updateProgress = (snapshot) => {
     const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
     setUploadProgress(progress);

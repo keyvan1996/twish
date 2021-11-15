@@ -1,3 +1,4 @@
+// this file creates a admin user using the admin user's SDK from firebase
 var admin = require("firebase-admin");
 
 var serviceAccount = require("./twish-2dd01-firebase-adminsdk-urfse-9e4d605ca2.json");
